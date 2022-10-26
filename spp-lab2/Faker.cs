@@ -41,7 +41,11 @@ namespace spp_lab2
 
         public object Create(Type type)
         {
-            throw new NotImplementedException();
+            // cycle check
+
+            var obj = _valueGenerators.FirstOrDefault(g => g.CanGenerate(type), new ComplexTypeGenerator())
+            .Generate(type, _generatorContext);
+            return obj;
         }
     }
 }

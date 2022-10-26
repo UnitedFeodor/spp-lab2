@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\5 sem\\spp\\lab2\\spp-lab2\\spp-lab2\\faker.core.csproj",
-      "projectName": "faker.core",
-      "projectPath": "D:\\5 sem\\spp\\lab2\\spp-lab2\\spp-lab2\\faker.core.csproj",
+      "projectUniqueName": "D:\\5 sem\\spp\\lab2\\spp-lab2\\spp-lab2\\faker.abstractions.csproj",
+      "projectName": "faker.abstractions",
+      "projectPath": "D:\\5 sem\\spp\\lab2\\spp-lab2\\spp-lab2\\faker.abstractions.csproj",
       "packagesPath": "C:\\Users\\Пользователь.DESKTOP-Q0U0VUP\\.nuget\\packages\\",
       "outputPath": "D:\\5 sem\\spp\\lab2\\spp-lab2\\spp-lab2\\obj\\",
       "projectStyle": "PackageReference",

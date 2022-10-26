@@ -17,6 +17,6 @@ namespace spp_lab2.generators
         {
             return type == typeof(long);
         }
-    {
+    
     }
 }

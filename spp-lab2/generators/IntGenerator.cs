@@ -10,13 +10,12 @@ namespace spp_lab2.generators
     {
         public object Generate(Type typeToGenerate, GeneratorContext context)
         {
-            return context.Random.Next(int.MinValue, int.MaxValue+1);
+            return context.Random.Next(int.MinValue, int.MaxValue);
         }
 
         public bool CanGenerate(Type type)
         {
             return type == typeof(int);
         }
-    {
     }
 }

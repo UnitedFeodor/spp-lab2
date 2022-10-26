@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,16 @@ namespace spp_lab2.generators
     {
         public bool CanGenerate(Type type)
         {
-            throw new NotImplementedException();
+            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
         }
 
         public object Generate(Type typeToGenerate, GeneratorContext context)
         {
-            throw new NotImplementedException();
+            var list = (IList)Activator.CreateInstance(typeToGenerate);
+            for (int i = 0; i < context.Random.Next(5, 50); i++)
+                list.Add(context.Faker.Create(typeToGenerate.GetGenericArguments()[0]));
+
+            return list;
         }
     }
 }

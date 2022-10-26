@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace spp_lab2.generators
 {
-    internal class DoubleGenerator
-    {
-    }
+    public class DoubleGenerator : IValueGenerator
+	{
+		public bool CanGenerate(Type type)
+		{
+			return type == typeof(double);
+		}
+
+		public object Generate(Type typeToGenerate, GeneratorContext context)
+		{
+			return context.Random.NextDouble();
+		}
+	}
+    
 }
