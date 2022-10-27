@@ -12,6 +12,8 @@ namespace spp_lab2
         private readonly GeneratorContext _generatorContext;
         private readonly List<IValueGenerator> _valueGenerators;
         // cycle check needed
+        private Dictionary<Type, int> _createdTypes = new();
+        private const int _maxDepth = 2;
 
         public Faker()
         {
@@ -42,10 +44,33 @@ namespace spp_lab2
         public object Create(Type type)
         {
             // cycle check
+            if(!isMaxDepthAndAdd(type)) { return null; }
 
             var obj = _valueGenerators.FirstOrDefault(g => g.CanGenerate(type), new ComplexTypeGenerator())
             .Generate(type, _generatorContext);
+
+            removeType(type);
             return obj;
+        }
+
+        private bool isMaxDepthAndAdd(Type type)
+        {
+            if (_createdTypes.ContainsKey(type))
+            {
+                _createdTypes[type]++;
+            }
+            else
+            {
+                _createdTypes.Add(type, 1);
+            }
+
+            return _createdTypes[type] <= _maxDepth;
+
+        }
+
+        private void removeType(Type type)
+        {
+            _createdTypes[type]--;
         }
     }
 }

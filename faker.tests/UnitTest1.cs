@@ -42,5 +42,26 @@ namespace faker.tests
 			Assert.IsNotEmpty((IList)_faker.Create(t));
 		}
 
-	}
+        [Test]
+        [TestCase(typeof(DateTime))]
+        [TestCase(typeof(byte))]
+        [TestCase(typeof(short))]
+        [TestCase(typeof(int))]
+        [TestCase(typeof(long))]
+        [TestCase(typeof(float))]
+        [TestCase(typeof(double))]
+        [TestCase(typeof(decimal))]
+        [TestCase(typeof(string))]
+        [TestCase(typeof(bool))]
+        [TestCase(typeof(char))]
+        [TestCase(typeof(Class1))]
+        
+        [TestCase(typeof(Class2))]
+        [TestCase(typeof(List<List<int>>))]
+
+        public void CreatePrimitiveTest(Type type)
+        {
+            Assert.DoesNotThrow(() => _faker.Create(type));
+        }
+    }
 }

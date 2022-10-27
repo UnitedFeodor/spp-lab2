@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace faker.tests
 {
-    internal class Class1
+    public class Class1
     {
+        public int Number;
+        public string Text;
+        public bool Check { get; set; }
+        public static int Static { get; set; }
+
+        public Class1(int number, string text)
+        {
+            Number = number;
+            Text = text;
+        }
     }
 }
