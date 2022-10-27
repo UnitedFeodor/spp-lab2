@@ -8,15 +8,10 @@ namespace faker.tests
 {
     public class Class1
     {
-        public int Number;
-        public string Text;
-        public bool Check { get; set; }
+        public int Int;
+        public byte Byte;
+        public string String;
         public static int Static { get; set; }
 
-        public Class1(int number, string text)
-        {
-            Number = number;
-            Text = text;
-        }
     }
 }

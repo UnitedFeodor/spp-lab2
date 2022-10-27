@@ -28,7 +28,7 @@ namespace spp_lab2.generators
                     field.SetValue(instance, context.Faker.Create(field.FieldType));
                 }
             }
-            var properties = instance.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            var properties = instance.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
             foreach (var property in properties)
             {
                 if (property.CanWrite)
